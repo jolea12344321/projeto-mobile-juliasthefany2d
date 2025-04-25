@@ -1,4 +1,5 @@
 import { Image, StyleSheet, Platform } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -8,47 +9,52 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#F3E5F5', dark: '#1D3D47' }}
       headerImage={
         <Image
           source={require('@/assets/images/partial-react-logo.png')}
           style={styles.reactLogo}
         />
       }>
+      
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Olá, Julia!</ThemedText>
         <HelloWave />
       </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
+        <ThemedText type="subtitle" style={{ color: '#333', fontWeight: '600' }}>
+          Saldo disponível
+        </ThemedText>
+        <ThemedText type="title" style={{ color: '#820AD1', fontSize: 28 }}>
+          R$ 5.320,75
         </ThemedText>
       </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
+        <ThemedText type="subtitle" style={{ fontWeight: '600', color: '#333' }}>
+          Atalhos
         </ThemedText>
+        <View style={{ flexDirection: 'row' }}>
+          <TouchableOpacity style={[styles.chip, { marginRight: 12 }]}>
+            <ThemedText style={{ color: '#fff' }}>Pix</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.chip, { marginRight: 12 }]}>
+            <ThemedText style={{ color: '#fff' }}>Transferir</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.chip}>
+            <ThemedText style={{ color: '#fff' }}>Pagar conta</ThemedText>
+          </TouchableOpacity>
+        </View>
       </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+        <ThemedText type="subtitle" style={{ fontWeight: '600', color: '#333' }}>
+          Últimas transações
         </ThemedText>
+        <ThemedText style={{ color: '#555' }}>• Mercado Livre - R$ 250,00</ThemedText>
+        <ThemedText style={{ color: '#555' }}>• Spotify - R$ 19,90</ThemedText>
+        <ThemedText style={{ color: '#555' }}>• Depósito - R$ 1.000,00</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -59,10 +65,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+    paddingHorizontal: 20,
+    paddingTop: 28,
+    marginBottom: 12,
   },
   stepContainer: {
+    backgroundColor: '#ffffff',
+    borderRadius: 16,
+    padding: 16,
+    marginHorizontal: 20,
+    marginBottom: 16,
     gap: 8,
-    marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.01,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  chip: {
+    backgroundColor: '#820AD1',
+    paddingVertical: 6,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    borderWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
   },
   reactLogo: {
     height: 178,
