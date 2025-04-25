@@ -9,14 +9,13 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#F3E5F5', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      
+    headerBackgroundColor={{ light: '#F3E5F5', dark: '#1D3D47' }}
+    headerImage={
+      <Image
+      source={require('@/assets/images/imagem.png')}
+      style={{ width: '100%', height: 300, resizeMode: 'cover' }}
+      />
+    }>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Olá, Julia!</ThemedText>
         <HelloWave />
@@ -59,8 +58,12 @@ export default function HomeScreen() {
     </ParallaxScrollView>
   );
 }
-
 const styles = StyleSheet.create({
+  banner: {
+    width: '100%',
+    height: 300,
+    resizeMode: 'cover',
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
