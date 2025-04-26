@@ -1,20 +1,17 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Image } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
+        <Image
+          source={require('@/assets/images/imagem.png')}
           style={styles.headerImage}
         />
       }>
@@ -23,15 +20,15 @@ export default function TabTwoScreen() {
       </ThemedView>
 
       <Collapsible title="Pix">
-        <ThemedText>Envie e receba dinheiro instantaneamente com Pix.</ThemedText>
+        <ThemedText>Envie e receba seus Pix.</ThemedText>
       </Collapsible>
 
       <Collapsible title="Transferências">
-        <ThemedText>Faça transferências para contas de outros bancos ou NuContas.</ThemedText>
+        <ThemedText>Faça transferências para contas de outros bancos.</ThemedText>
       </Collapsible>
 
       <Collapsible title="Pagamentos">
-        <ThemedText>Pague boletos, contas de consumo e tributos com facilidade.</ThemedText>
+        <ThemedText>Pague boletos, e suas dívidas.</ThemedText>
       </Collapsible>
 
       <Collapsible title="Últimas transações">
@@ -45,13 +42,13 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
+    width: '100%',
+    height: 300,
+    resizeMode: 'cover',
   },
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+    padding: 20,
   },
 });
